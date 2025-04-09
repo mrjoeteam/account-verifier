@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Account Verifier</title>
+  </head>
+  <body>
+    <h1>Bank Account Name Lookup</h1>
+    <input id="account_number" placeholder="Account Number" /><br />
+    <input id="account_bank" placeholder="Bank Code (e.g. 044 for Access Bank)" /><br />
+    <button onclick="verify()">Verify</button>
+    <p id="result"></p>
+
+    <script>
+      async function verify() {
+        const account_number = document.getElementById("account_number").value;
+        const account_bank = document.getElementById("account_bank").value;
+
+        const response = await fetch("/verifyAccount", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ account_number, account_bank }),
+        });
+
+        const data = await response.json();
+        document.getElementById("result").textContent =
+          data?.data?.account_name || data.error || "Something went wrong";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "api/verify-account.js", "use": "@vercel/node" },
+      { "src": "public/index.html", "use": "@vercel/static" }
+    ],
+    "routes": [
+      { "src": "/verifyAccount", "dest": "/api/verify-account.js" },
+      { "src": "/(.*)", "dest": "/public/$1" }
+    ]
+  }
+  
