@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
       {
         params: { account_number, account_bank },
         headers: {
-          Authorization: `FLWSECK-2205338cdf9a57d1859999d1be4ba1e6-1961c371d64vt-X`, // Replace this!
+         Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`
         },
       }
     );
