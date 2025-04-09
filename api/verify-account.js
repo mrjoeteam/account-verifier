@@ -9,12 +9,7 @@ module.exports = async (req, res) => {
       {
         params: { account_number, account_bank },
         headers: {
-<<<<<<< HEAD
-         Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`
-=======
-            Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`
-            // Replace this!
->>>>>>> d9025ab (Secure API key with .env and update verify-account.js)
+          Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`
         },
       }
     );
